@@ -1,4 +1,5 @@
 import React from "react";
+import ClassSongForm from "./ClassSongForm";
 
 // Convention for class component
 class ClassSongList extends React.Component {
@@ -68,8 +69,9 @@ class ClassSongList extends React.Component {
   render () {
     return (
       <div>
+        <button onClick={this.toggleForm}>{this.state.showForm ? 'Hide Form' : 'Add Song'}</button>
+        {this.state.showForm && <ClassSongForm addSong={this.addSong} />}
         <h2>Song List</h2>
-        <button onClick={this.toggleForm}>{this.state.showForm ? 'Hide Form' : 'Show Form'}</button>
         {this.renderSongs()}
       </div>
     )
