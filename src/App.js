@@ -1,10 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import ClassSongList from './class/ClassSongList';
 
 function App() {
   return (
-    <div>
+    <div className="border">
       <h1>Class Components: </h1>
       <ClassSongList />
     </div>

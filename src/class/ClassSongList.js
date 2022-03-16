@@ -21,7 +21,7 @@ class ClassSongList extends React.Component {
         {title: 'Sweet Home Alabama', artist: 'Lynyrd Skynyrd'},
         {title: 'Gimme Three Steps', artist: 'Lynyrd Skynyrd'},
         {title: 'Free Bird', artist: 'Lynyrd Skynyrd'}],
-      showForm: true}
+      showForm: false}
   }
 
   // Function to add new song to SongList
@@ -49,7 +49,7 @@ class ClassSongList extends React.Component {
   renderSongs = () => {
     return this.state.songs.map((s) => {
       return (
-        <div>
+        <div className="border">
           <p>{s.title}</p>
           <p>{s.artist}</p>
           <button onClick={() => this.deleteSong(s.title)}>Delete</button>
@@ -68,7 +68,7 @@ class ClassSongList extends React.Component {
   //You have to define render with a class component
   render () {
     return (
-      <div>
+      <div className="border">
         <button onClick={this.toggleForm}>{this.state.showForm ? 'Hide Form' : 'Add Song'}</button>
         {this.state.showForm && <ClassSongForm addSong={this.addSong} />}
         <h2>Song List</h2>

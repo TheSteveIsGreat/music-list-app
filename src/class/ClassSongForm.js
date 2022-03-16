@@ -51,6 +51,7 @@ class ClassSongForm extends React.Component {
           <p>Artist:</p>
           <input name="artist" value={this.state.artist} onChange={this.handleChange}/>
           <br/>
+          <br/>
           <button>Submit</button>
         </form>
       </div>
