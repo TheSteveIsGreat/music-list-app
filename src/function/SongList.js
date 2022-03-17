@@ -3,7 +3,6 @@ import SongForm from "./SongForm";
 
 const FunctionalSongList = (props) => {
   const [showForm, SetShowForm] = useState(false)
-  const [song, SetSong] = useState({title: '', artist: ''})
   //UseEffect to render list on mount
   useEffect(() => {
     console.log('FunctionalSongList UseEffect Mounted')
@@ -46,10 +45,10 @@ const FunctionalSongList = (props) => {
   const renderSongs = () => {
     return songs.map(s => {
       return (
-        <div className="border">
+        <div className="border" key={Math.random()}>
           <p>{s.title}</p>
           <p>{s.artist}</p>
-          <button>Delete</button>
+          <button onClick={()=>deleteSong(s.title)}>Delete</button>
         </div>
       )
     })

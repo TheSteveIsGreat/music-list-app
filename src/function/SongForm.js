@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 
 const SongForm = (props) => {
-  const [song, SetSong] = useState ({title: '', artist: ''})
+  const [title, SetTitle] = useState (props.title || '')
+  const [artist, SetArtist] = useState (props.artist || '')
 
-  const handleChange = (e) => {
-    SetSong(e.target.value)
-  }
+  
 
   const handleSubmit = (e) => {
     //Prevents automatic page load
     e.preventDefault()
     //View state
-    console.log(song)
+    console.log(e)
     //Use addSong to add to list
-    props.addSong(song)
+    let songData = {title, artist}
+    props.addSong(songData)
   }
 
   return (
@@ -23,9 +23,9 @@ const SongForm = (props) => {
         <h2>Song Form</h2>
         <form onSubmit={handleSubmit}>
           <p>Title:</p>
-          <input name="title" value={song.title} onChange={handleChange}/>
+          <input name="title" value={title} onChange={(e)=>SetTitle(e.target.value)}/>
           <p>Artist:</p>
-          <input name="artist" value={song.artist} onChange={handleChange}/>
+          <input name="artist" value={artist} onChange={(e)=>SetArtist(e.target.value)}/>
           <br/>
           <br/>
           <button>Submit</button>
