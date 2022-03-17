@@ -43,7 +43,7 @@ class ClassSongForm extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className="border">
         <h2>Song Form</h2>
         <form onSubmit={this.handleSubmit}>
           <p>Title:</p>
